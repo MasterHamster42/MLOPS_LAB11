@@ -50,10 +50,12 @@ jobs:
 
       - name: Download artifacts
         env:
-          PYTHONPATH: src/scripts
+          PYTHONPATH: .
         run: uv run python src/scripts/download_artifacts.py
 
       - name: Convert models to ONNX
+        env:
+          PYTHONPATH: .
         run: |
           uv run python src/scripts/export_classifier_to_onnx.py
           uv run python src/scripts/export_sentence_transformer_to_onnx.py
