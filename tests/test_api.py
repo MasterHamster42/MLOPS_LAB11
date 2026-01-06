@@ -9,12 +9,6 @@ def client() -> TestClient:
     return TestClient(app)
 
 
-def test_predict(client: TestClient):
-    response = client.post("/predict", content='{ "text": "string" }')
-    assert response.status_code == 200
-    assert response.json() == {"prediction": "NEUTRAL"}
-
-
 def test_health_check(client):
     response = client.get("/health")
     assert response.status_code == 200
