@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from app import app
+from src.sentiment_app.app import app
 
 
 @pytest.fixture
@@ -9,10 +9,10 @@ def client() -> TestClient:
     return TestClient(app)
 
 
-def test_welcome_root(client: TestClient):
-    response = client.get("/")
+def test_predict(client: TestClient):
+    response = client.post("/predict", content='{ "text": "string" }')
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to the ML API"}
+    assert response.json() == {"prediction": "NEUTRAL"}
 
 
 def test_health_check(client):

@@ -16,7 +16,7 @@ def export_classifier_to_onnx(settings: Settings):
     initial_type = [("float_input", FloatTensorType([None, settings.embedding_dim]))]
 
     print("Converting to ONNX...")
-    onnx_model = convert_sklearn(classifier, initial_types=initial_type)  # TODO: complete conversion here
+    onnx_model = convert_sklearn(classifier, initial_types=initial_type)
 
     print(f"Saving ONNX model to {settings.onnx_classifier_path}...")
     os.makedirs(os.path.dirname(settings.onnx_classifier_path), exist_ok=True)
