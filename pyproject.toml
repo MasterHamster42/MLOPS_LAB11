@@ -10,6 +10,7 @@ dependencies = [
     "pydantic-settings>=2.12.0",
     "skl2onnx>=1.19.1",
     "httpx>=0.28.1",
+    "mangum>=0.20.0",
 ]
 
 [dependency-groups]
@@ -25,7 +26,6 @@ inference = [
     "awslambdaric>=3.1.1",
     "onnxruntime>=1.23.2",
     "tokenizers>=0.22.2",
-    "mangum>=0.20.0",
 ]
 integration = [
     "mypy>=1.19.1",
