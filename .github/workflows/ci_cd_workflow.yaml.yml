@@ -49,6 +49,8 @@ jobs:
         run: uv sync --only-group deployment
 
       - name: Download artifacts
+        env:
+          PYTHONPATH: src/scripts
         run: uv run python src/scripts/download_artifacts.py
 
       - name: Convert models to ONNX

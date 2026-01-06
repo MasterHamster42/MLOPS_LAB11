@@ -31,7 +31,6 @@ integration = [
     "mypy>=1.19.1",
     "pytest>=9.0.2",
     "ruff>=0.14.10",
-    "onnxruntime>=1.23.2",
 ]
 
 [tool.pytest.ini_options]
