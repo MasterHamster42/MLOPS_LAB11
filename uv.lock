@@ -591,6 +591,7 @@ dependencies = [
     { name = "fastapi" },
     { name = "httpx" },
     { name = "joblib" },
+    { name = "mangum" },
     { name = "pydantic-settings" },
     { name = "skl2onnx" },
     { name = "uvicorn" },
@@ -607,12 +608,12 @@ deployment = [
 ]
 inference = [
     { name = "awslambdaric" },
-    { name = "mangum" },
     { name = "onnxruntime" },
     { name = "tokenizers" },
 ]
 integration = [
     { name = "mypy" },
+    { name = "onnxruntime" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -622,6 +623,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.128.0" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "joblib", specifier = ">=1.5.3" },
+    { name = "mangum", specifier = ">=0.20.0" },
     { name = "pydantic-settings", specifier = ">=2.12.0" },
     { name = "skl2onnx", specifier = ">=1.19.1" },
     { name = "uvicorn", specifier = ">=0.30.0" },
@@ -638,12 +640,12 @@ deployment = [
 ]
 inference = [
     { name = "awslambdaric", specifier = ">=3.1.1" },
-    { name = "mangum", specifier = ">=0.20.0" },
     { name = "onnxruntime", specifier = ">=1.23.2" },
     { name = "tokenizers", specifier = ">=0.22.2" },
 ]
 integration = [
     { name = "mypy", specifier = ">=1.19.1" },
+    { name = "onnxruntime", specifier = ">=1.23.2" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.14.10" },
 ]
