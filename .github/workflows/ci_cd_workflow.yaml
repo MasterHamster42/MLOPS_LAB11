@@ -1,5 +1,15 @@
 name: CI/CD workflow
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      steps:
+        description: 'Which steps to run'
+        required: true
+        type: choice
+        default: 'all'
+        options:
+          - integration
+          - all
 
 env:
   AWS_REGION: 'us-east-1'
@@ -10,6 +20,7 @@ jobs:
   integration:
     name: checks_and_tests
     runs-on: ubuntu-latest
+    if: ${{ inputs.steps == 'all' || inputs.steps == 'integration' }}
     steps:
       - name: Checkout code repo
         uses: actions/checkout@v4
@@ -30,11 +41,12 @@ jobs:
     name: deployment
     needs: integration
     runs-on: ubuntu-latest
+    if: ${{ inputs.steps == 'all' && needs.integration.result == 'success' }}
     steps:
       - name: Checkout code repo
         uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
+      - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
